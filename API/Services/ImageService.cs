@@ -1,4 +1,4 @@
-using CloudinaryDotNet;
+/*using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 
 namespace API.Services;
@@ -44,4 +44,4 @@ public class ImageService
 
         return result;
     }
-}
+}*/

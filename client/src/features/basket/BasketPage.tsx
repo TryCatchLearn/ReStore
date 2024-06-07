@@ -1,6 +1,5 @@
-import { Button, Grid, Typography } from "@mui/material";
-import BasketSummary from './BasketSummary';
-import { Link } from 'react-router-dom';
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
 import { useAppSelector } from '../../app/store/configureStore';
 import BasketTable from './BasketTable';
 
@@ -14,18 +13,19 @@ export default function BasketPage() {
             <BasketTable items={basket.items} />
             <Grid container>
                 <Grid item xs={6}></Grid>
-                <Grid item xs={6}>
-                    <BasketSummary />
-                    <Button
-                        component={Link}
-                        to={'/checkout'}
-                        variant='contained'
-                        size='large'
-                        fullWidth>
-                        Checkout
-                    </Button>
+                <Grid item xs={6}>  
                 </Grid>
             </Grid>
+            <Box sx={{ display: 'flex', alignItems: 'center', marginTop: 2 }}>
+          <TextField label="Enter something" variant="outlined" sx={{ mr: 1 }} />
+          <Button
+            variant="contained"
+            component={RouterLink}
+            to="/calendar"
+          >
+            Go to Calendar
+          </Button>
+        </Box>
         </>
 
     )

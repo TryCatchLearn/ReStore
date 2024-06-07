@@ -1,4 +1,4 @@
-import { ShoppingCart } from '@mui/icons-material';
+import { CalendarMonth } from '@mui/icons-material';
 import { AppBar, Badge, Box, IconButton, List, ListItem, Switch, Toolbar, Typography } from "@mui/material";
 import { Link, NavLink } from 'react-router-dom';
 import { useAppSelector } from '../store/configureStore';
@@ -47,7 +47,7 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
                         to='/'
                         sx={navLinkStyles}
                     >
-                        RE-STORE
+                        iSellStore Rm. Valcea
                     </Typography>
                     <Switch checked={darkMode} onChange={handleThemeChange} />
                 </Box>
@@ -76,7 +76,7 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
                 <Box display='flex' alignItems='center'>
                     <IconButton component={Link} to='/basket' size='large' edge='start' color='inherit' sx={{ mr: 2 }}>
                         <Badge badgeContent={itemCount} color='secondary'>
-                            <ShoppingCart />
+                            <CalendarMonth />
                         </Badge>
                     </IconButton>
                     {user ? (

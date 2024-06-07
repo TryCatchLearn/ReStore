@@ -51,7 +51,7 @@ export default function ProductDetails() {
             <Grid item xs={6}>
                 <Typography variant='h3'>{product.name}</Typography>
                 <Divider sx={{ mb: 2 }} />
-                <Typography variant='h4' color='secondary'>${(product.price / 100).toFixed(2)}</Typography>
+                <Typography variant='h4' color='secondary'>RON{(product.price).toFixed(2)}</Typography>
                 <TableContainer>
                     <Table>
                         <TableBody sx={{ fontSize: '1.1em' }}>
@@ -99,7 +99,7 @@ export default function ProductDetails() {
                             size={'large'}
                             variant={'contained'}
                             fullWidth>
-                            {item ? 'Update Quantity' : 'Add to Cart'}
+                            {item ? 'Update Quantity' : 'Rezerva'}
                         </LoadingButton>
                     </Grid>
                 </Grid>

@@ -13,6 +13,7 @@ import RequireAuth from './RequireAuth';
 import Orders from '../../features/orders/Orders';
 import CheckoutWrapper from '../../features/checkout/CheckoutWrapper';
 import Inventory from '../../features/admin/Inventory';
+import CalendarPage from '../../features/basket/Calendar';
 
 export const router = createBrowserRouter(([
     {
@@ -36,6 +37,7 @@ export const router = createBrowserRouter(([
             { path: 'catalog/:id', element: <ProductDetails /> },
             { path: 'about', element: <AboutPage /> },
             { path: 'contact', element: <ContactPage /> },
+            { path: 'calendar', element: <CalendarPage /> },
             { path: '/server-error', element: <ServerError /> },
             { path: '/not-found', element: <NotFound /> },
             { path: '/basket', element: <BasketPage /> },
