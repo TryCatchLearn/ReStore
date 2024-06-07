@@ -15,10 +15,10 @@ public class ProductsController : BaseApiController
 {
     private readonly StoreContext _context;
     private readonly IMapper _mapper;
-    private readonly ImageService _imageService;
-    public ProductsController(StoreContext context, IMapper mapper, ImageService imageService)
+    //private readonly ImageService _imageService;
+    public ProductsController(StoreContext context, IMapper mapper)
     {
-        _imageService = imageService;
+       
         _mapper = mapper;
         _context = context;
     }
@@ -63,9 +63,10 @@ public class ProductsController : BaseApiController
     [HttpPost]
     public async Task<ActionResult<Product>> CreateProduct([FromForm] CreateProductDto productDto)
     {
+        return BadRequest();
         var product = _mapper.Map<Product>(productDto);
 
-        if (productDto.File != null)
+        /*if (productDto.File != null)
         {
             var imageResult = await _imageService.AddImageAsync(productDto.File);
 
@@ -76,7 +77,7 @@ public class ProductsController : BaseApiController
 
             product.PictureUrl = imageResult.SecureUrl.ToString();
             product.PublicId = imageResult.PublicId;
-        }
+        }*/
 
         _context.Products.Add(product);
 
@@ -91,6 +92,8 @@ public class ProductsController : BaseApiController
     [HttpPut]
     public async Task<ActionResult<Product>> UpdateProduct([FromForm]UpdateProductDto productDto)
     {
+
+        return BadRequest();
         var product = await _context.Products.FindAsync(productDto.Id);
 
         if (product == null) return NotFound();
@@ -99,7 +102,7 @@ public class ProductsController : BaseApiController
 
         _mapper.Map(productDto, product);
 
-        if (productDto.File != null)
+       /* if (productDto.File != null)
         {
             var imageUploadResult = await _imageService.AddImageAsync(productDto.File);
 
@@ -111,7 +114,7 @@ public class ProductsController : BaseApiController
 
             product.PictureUrl = imageUploadResult.SecureUrl.ToString();
             product.PublicId = imageUploadResult.PublicId;
-        }
+        }*/
 
         var result = await _context.SaveChangesAsync() > 0;
 
@@ -124,12 +127,13 @@ public class ProductsController : BaseApiController
     [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteProduct(int id)
     {
+        return BadRequest();
         var product = await _context.Products.FindAsync(id);
 
         if (product == null) return NotFound();
 
-        if (!string.IsNullOrEmpty(product.PublicId)) 
-            await _imageService.DeleteImageAsync(product.PublicId);
+        /*if (!string.IsNullOrEmpty(product.PublicId)) 
+            await _imageService.DeleteImageAsync(product.PublicId);*/
 
         _context.Products.Remove(product);
 
